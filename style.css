@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --svgurl: url(./assets/sun.svg);
+    --svgpos: 90%;
+    --bgcolor: white;
+    --bgbut: rgba(0,0,0,0.5);
+    --butborder: #242424;
+    --textcolor: black;
+}
+
+.mode{
+    --svgurl: url(./assets/moon.svg);
+    --svgpos: 10%;
+    --bgcolor: black;
+    --bgbut: rgba(255,255,255,0.5);
+    --butborder: #fafafa;
+    --textcolor: white;
+}
+
+body{
+    display: flex;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bgcolor);
+    transition: 0.3s;
+    flex-direction: column;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--textcolor);
+    gap: 30px;
+}
+
+#bgbut{
+    width: 124px;
+    height: 65px;
+    position: relative;
+    border-radius: 9999px;
+    background:  var(--bgbut) var(--svgurl) no-repeat center;
+    background-size: 35%;
+    background-position: var(--svgpos);
+    border: 2px solid var(--butborder);
+}
+
+#but{
+    height: 60px;
+    width: 60px;
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    animation: back 0.2s;
+    border: 2px solid black;
+}
+
+#but:hover{
+    background-color: rgb(218, 218, 218);
+}
+
+#but:active{
+    box-shadow: inset 0 0 4px black;
+}
+
+.mode>#bgbut>#but{
+    animation: slide 0.2s forwards;
+}
+
+@keyframes slide {
+    from{
+        left: -0%;
+    }
+    to{
+        left: 50%;
+    }
+}
+@keyframes back {
+    from{
+        left: 50%;
+    }
+    to{
+        left: -0%;
+    }
+}
